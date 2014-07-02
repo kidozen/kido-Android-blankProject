@@ -2,28 +2,10 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/build/intermediates/pre-dexed/debug/gcm-7d974e8f107c50bc12dc9d07e997c76b9abb899d.jar"
-        jar="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/libs/gcm.jar"
+        dex="/Users/christian/sources/kidozen/kido-Android-blankProject/app/build/intermediates/pre-dexed/debug/kz.client-1.1.1-202e11676769267c65ad1b15df9caf98f9e78eaf.jar"
+        jar="/Users/christian/sources/kidozen/kido-Android-blankProject/app/libs/kz.client-1.1.1.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="a6d7bce795a14c7f86111756c4ceb44b79de14aa"/>
-    <item
-        dex="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/build/intermediates/pre-dexed/debug/kz.client-1.1.1-c4c506527cab6a5f00f559317c0face4d1181c43.jar"
-        jar="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/libs/kz.client-1.1.1.jar"
-        jumboMode="false"
-        revision="20.0.0"
+        revision="19.1.0"
         sha1="42d2e1d6791bf17a1d0b1c1386cc90a1425091d2"/>
-    <item
-        dex="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/build/intermediates/pre-dexed/debug/json-20090211-ffe13af428157d5341a3379f04085be7ec439dfa.jar"
-        jar="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/libs/json-20090211.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="c183aa3a2a6250293808bba12262c8920ce5a51c"/>
-    <item
-        dex="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/build/intermediates/pre-dexed/debug/websocket-0.7-f277b0b882dafa53c165d2011d6b3b9fa9741bbc.jar"
-        jar="/Users/carlosovalles/AndroidStudioProjects/KidoZenBlankProject/app/libs/websocket-0.7.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="206d47a3066d83004f86c5095a4969f8f6395164"/>
 
 </pre-dex-items>

@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import org.apache.http.HttpStatus;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import kidozen.client.KZApplication;
 import kidozen.client.ServiceEvent;
@@ -18,48 +22,63 @@ import kidozen.client.ServiceEventListener;
 
 public class HelloKidoActivity extends Activity {
 
-    final String TENANT = "https://kidodemo.kidocloud.com";
+    public static final String TAG = "HelloKido Activity";
+    final String TENANT = "https://kidodemo.kidocloud.com/";
     final String APPLICATION = "tasks";
 
     final String KidoZenProvider = "Kidozen";
     final String KidoZenUser = "demo@kidozen.com";
     final String KidoZenPassword = "pass";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hello_kido);
+    Button authButton ;
+    TextView textMessage;
 
-        final CountDownLatch lcd = new CountDownLatch(1);
+    KZApplication app;
 
-        try {
-            KZApplication app = new KZApplication(TENANT,APPLICATION,false, new ServiceEventListener() {
-                @Override
-                public void onFinish(ServiceEvent e) {
-                   if (e.StatusCode != HttpStatus.SC_OK){
-                       Log.d("HelloKido Activity","**** ERROR MESSAGE: Unable to reach the kidozen server. Make sure your KidoZenAppCenterUrl and KidoZenAppName are correct");
-                   }else{
-                       Log.d("HelloKido Activity","KidoZen Server instance Initialized.");
-                   }
-                    lcd.countDown();
-                }
-            });
-
-            lcd.await();
+    private View.OnClickListener authenticateWithKidozen = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
             app.Authenticate(KidoZenProvider,KidoZenUser,KidoZenPassword,new ServiceEventListener() {
                 @Override
                 public void onFinish(ServiceEvent e) {
                     if (e.StatusCode != HttpStatus.SC_OK){
-                        Log.d("HelloKido Activity","**** ERROR MESSAGE: Unable to reach the kidozen server. Make sure your KidoZenAppCenterUrl and KidoZenAppName are correct");
+                        Log.d(TAG,"**** ERROR MESSAGE: Unable to reach the kidozen server. Make sure your KidoZenAppCenterUrl and KidoZenAppName are correct");
                     }else{
-                        Log.d("HelloKido Activity","KidoZen autentication sucessful.");
+                        textMessage.setText(app.KidozenUser.Claims.get("name"));
+                        Log.d(TAG,app.KidozenUser.Claims.get("name"));
+                        Log.d(TAG,"KidoZen autentication sucessful.");
                     }
 
                 }
             });
         }
-        catch (Exception e){
+    };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hello_kido);
+        textMessage = (TextView)findViewById(R.id.textViewMessages);
+
+        authButton = (Button)findViewById(R.id.buttonAuthenticate);
+        authButton.setOnClickListener(authenticateWithKidozen);
+        authButton.setEnabled(false);
+
+        try {
+            app = new KZApplication(TENANT,APPLICATION, true, new ServiceEventListener() {
+                @Override
+                public void onFinish(ServiceEvent e) {
+                   if (e.StatusCode != HttpStatus.SC_OK){
+                       Log.d(TAG,"**** ERROR MESSAGE: Unable to reach the kidozen server. Make sure your KidoZenAppCenterUrl and KidoZenAppName are correct");
+                   }else{
+                       authButton.setEnabled(true);
+                       Log.d(TAG,"KidoZen Server instance Initialized.");
+                   }
+                }
+            });
+        }
+        catch (Exception e){
+            Log.d(TAG,e.getMessage());
         }
     }
 

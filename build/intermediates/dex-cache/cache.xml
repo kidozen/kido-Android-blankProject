@@ -2,8 +2,8 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/christian/sources/kidozen/kido-Android-blankProject/app/build/intermediates/pre-dexed/debug/kz.client-1.1.1-202e11676769267c65ad1b15df9caf98f9e78eaf.jar"
-        jar="/Users/christian/sources/kidozen/kido-Android-blankProject/app/libs/kz.client-1.1.1.jar"
+        dex="/Users/carlosovalles/Desktop/Android-HelloKido/app/build/intermediates/pre-dexed/debug/kz.client-1.1.1-39ef8a74408b5d15824b51a6ed1332d947a991f6.jar"
+        jar="/Users/carlosovalles/Desktop/Android-HelloKido/app/libs/kz.client-1.1.1.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="42d2e1d6791bf17a1d0b1c1386cc90a1425091d2"/>

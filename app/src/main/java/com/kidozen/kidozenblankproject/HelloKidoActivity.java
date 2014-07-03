@@ -44,7 +44,7 @@ public class HelloKidoActivity extends Activity {
                     if (e.StatusCode != HttpStatus.SC_OK){
                         Log.d(TAG,"**** ERROR MESSAGE: Unable to reach the kidozen server. Make sure your KidoZenAppCenterUrl and KidoZenAppName are correct");
                     }else{
-                        textMessage.setText(app.KidozenUser.Claims.get("name"));
+                        textMessage.setText("Hello: "+app.KidozenUser.Claims.get("name"));
                         Log.d(TAG,app.KidozenUser.Claims.get("name"));
                         Log.d(TAG,"KidoZen autentication sucessful.");
                     }

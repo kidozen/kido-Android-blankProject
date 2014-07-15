@@ -23,12 +23,12 @@ import kidozen.client.ServiceEventListener;
 public class HelloKidoActivity extends Activity {
 
     public static final String TAG = "HelloKido Activity";
-    final String TENANT = "https://kidodemo.kidocloud.com/";
-    final String APPLICATION = "tasks";
+    final String TENANT = "https://????.kidocloud.com/";
+    final String APPLICATION = "?????";
 
     final String KidoZenProvider = "Kidozen";
-    final String KidoZenUser = "demo@kidozen.com";
-    final String KidoZenPassword = "pass";
+    final String KidoZenUser = "????@email.com";
+    final String KidoZenPassword = "????";
 
     Button authButton ;
     TextView textMessage;
